@@ -110,13 +110,13 @@ int main() {
 			newParticle.xPos = event.motion.x;
 			newParticle.yPos = event.motion.y;
 			particles.push_back(newParticle); // add the particle
-			pTable[event.motion.y][event.motion.x] = newParticle; // add particle to Particle Table
+			//pTable[event.motion.y][event.motion.x] = newParticle; // add particle to Particle Table
 		}
 		renderParticles(renderer, particles); // render everything
 		frame1 = SDL_GetTicks() - frame2;
 		frame2 = SDL_GetTicks();
 		if (!(frame1 == 0)) fps = 1000 / frame1;
-		SDL_SetWindowTitle(window, ("PowderBOOM   FPS: " + to_string(fps)).c_str());
+		SDL_SetWindowTitle(window, ("PowderBOOM   FPS: " + to_string(fps) + "  Particles: " + to_string(particles.size())).c_str());
 	}
 
 	// quit SDL2

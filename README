@@ -1,0 +1,15 @@
+Welcome to the PowderBOOM source repository.
+PowderBOOM is a game inspired by The Powder Toy, it is currently very early in development so don't expect much.
+
+Compile
+======================
+You can compile by running the make.sh file or with this command:
+g++ src/*.cpp -o bin/bin -lSDL2main -lSDL2 -lSDL2_ttf
+
+Known bugs
+======================
+Particles aren't rendering :(
+
+Notes
+======================
+particle table is not used since too many segmentation faults happen because of it (pretty bored of seeing segfaults lol)
