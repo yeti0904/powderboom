@@ -41,7 +41,7 @@ int main() {
 	vector <particle> particles;      // vector for particles
 	vector <vector<particle>> pTable; // table of particles (easy look up by x and y position)
 	char run = 1;                     // if the game should still run
-	int draw = 0;                     // if the player is drawing particles right now
+	char draw = 0;                     // if the player is drawing particles right now
 	int elementSelected = 1;          // element selected
 	particle newParticle;             // used when a new particle is being created (only for simplicity)
 	int frame1;                       // used for fps
