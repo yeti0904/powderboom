@@ -49,6 +49,7 @@ int main() {
 	int fps;                          // frames per second
 	const int resX = 320;             // resolution X
 	const int resY = 180;             // resolution Y
+	bool cursorInParticle;            //
 
 	// check for font
 	printf("Checking for font\n");
@@ -104,13 +105,21 @@ int main() {
 			}
 		}
 		if (draw) {
-			// create new particle
-			// comments about these values are located inside of particles.h
-			newParticle = elements[elementSelected];
-			newParticle.xPos = event.motion.x;
-			newParticle.yPos = event.motion.y;
-			particles.push_back(newParticle); // add the particle
-			//pTable[event.motion.y][event.motion.x] = newParticle; // add particle to Particle Table
+			cursorInParticle = false;
+			for (int i = 0; i < particles.size(); ++i) {
+				if ((particles[i].xPos == event.motion.x) && (particles[i].yPos == event.motion.y) && !cursorInParticle) {
+					cursorInParticle = true;
+				}
+			}
+			if (!cursorInParticle) {
+				// create new particle
+				// comments about these values are located inside of particles.h
+				newParticle = elements[elementSelected];
+				newParticle.xPos = event.motion.x;
+				newParticle.yPos = event.motion.y;
+				particles.push_back(newParticle); // add the particle
+				//pTable[event.motion.y][event.motion.x] = newParticle; // add particle to Particle Table
+			}
 		}
 		renderParticles(renderer, particles); // render everything
 		frame1 = SDL_GetTicks() - frame2;
