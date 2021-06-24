@@ -25,12 +25,16 @@ void updatePTablePos(vector <particle> elements, vector <vector<particle>> &pTab
 	pTable[oldY][oldX] = elements[0]; // PTE
 }
 
+void setPTable(particle sparticle, vector<vector<particle>> &pTable, int X, int Y) {
+	pTable[Y][X] = sparticle;
+}
+
 particle createParticle(string name, int solidTemp, int liquidTemp, int gasTemp, int canConduct, unsigned char r, unsigned char g, unsigned char b, unsigned char a, int defaultTemperature, int permState, int permStateType) {
 	particle p; // particle to create
 	p.name = name;
 	p.solidTemp = solidTemp;
 	p.liquidTemp = liquidTemp;
-	p.gasTemp - gasTemp;
+	p.gasTemp = gasTemp;
 	p.canConduct = canConduct;
 	p.colour.r = r;
 	p.colour.g = g;
