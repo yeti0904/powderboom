@@ -1,6 +1,7 @@
 #include <vector>
 #include <string>
 #include <SDL2/SDL.h>
+#include <stdlib.h>
 #include "particles.h"
 using std::vector;
 using std::string;
@@ -12,14 +13,16 @@ particle getPT(vector <vector<particle>> pTable, int X, int Y) {
 	return pTable[Y][X];
 }
 
-void updatePTablePos(vector <particle> elements, vector <vector<particle>> &pTable, int oldX, int oldY, int newX, int newY) {
-	if ((oldX > pTable[0].size()) || (oldY > pTable.size())) {
+void updatePTablePos(vector <particle> elements, vector <vector<particle>> &pTable, int oldX, int oldY, int newX, int newY, int Y) {
+	if ((oldX >= pTable[0].size()) || (oldY >= pTable.size())) {
 		printf("Segmentation fault prevented on old position values in the updatePTablePos function.\nPlease show this error to MESYETI\n");
 		exit(1);
+		return;
 	}
-	if ((newX > pTable[0].size()) || (newY > pTable.size())) {
+	if ((newX >= pTable[0].size()) || (newY >= pTable.size())) {
 		printf("Segmentation fault prevented on new position values in the updatePTablePos function.\nPlease show this error to MESYETI\n");
 		exit(1);
+		return;
 	}
 	pTable[newY][newX] = pTable[oldY][oldX]; // copy particle in particle table to a new index
 	pTable[oldY][oldX] = elements[0]; // PTE

@@ -63,10 +63,10 @@ int main() {
 	vector <particle> temp;
 	particle empty;
 	empty.name = "PTE"; // Particle Table Empty
-	for (int i = 0; i<resX; ++i) {
+	for (int i = 0; i<resX + 1; ++i) {
 		temp.push_back(empty);
 	}
-	for (int i = 0; i<resY; ++i) {
+	for (int i = 0; i<resY + 1; ++i) {
 		pTable.push_back(temp);
 	}
 	printf("Created particle table, starting SDL2 renderer and window.\n");
@@ -86,7 +86,7 @@ int main() {
 	printf("All preparation complete. The game has now started.\n");
 
 	while (run) {
-		// gravity(particles, pTable, elements); (disabled for now, segmentation fault issue :( )
+		gravity(particles, pTable, elements); //(disabled for now, segmentation fault issue :( )
 		while (SDL_PollEvent(&event)) {
 			switch (event.type) {
 				case SDL_QUIT: {
