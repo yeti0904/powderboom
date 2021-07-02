@@ -8,7 +8,7 @@ g++ src/*.cpp -o bin/bin -lSDL2main -lSDL2 -lSDL2_ttf
 
 Known bugs
 ======================
-
+segfault when particle falls out of screen (caused by ptable)
 
 Notes
 ======================
